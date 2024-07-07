@@ -1,18 +1,27 @@
 package com.eczample.uni.model.DB;
 
+import com.eczample.uni.model.StudentGroup;
 import com.eczample.uni.model.impl.Student;
 import com.eczample.uni.model.impl.Teacher;
+import com.eczample.uni.service.TeacherService;
 
 import java.util.ArrayList;
 import java.util.List;
 //симулирует реальную базу данных
 public class DateBase {
+
     public static final List<Student> studentsDB = new ArrayList<>();
     public static final List<Teacher> teachersDB = new ArrayList<>();
+    public static final List<StudentGroup> studentGroupDB = new ArrayList<>();
 
     public static void fillDB(){
-        Teacher teacher = new Teacher(1, "Василий", "Иванов");
-        teacher.addGroupId(1);
+
+        Teacher teacher = new Teacher("Василий", "Иванов");
+
+        StudentGroup studentGroup = new StudentGroup(teacher);
+
+        TeacherService tService = new TeacherService();
+        tService.addGroupId(studentGroup);
 
         teachersDB.add(teacher);
 

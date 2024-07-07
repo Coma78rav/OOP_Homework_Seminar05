@@ -5,8 +5,7 @@ public abstract class User {
     protected String name;
     protected String lastName;
 
-    public User(int id, String name, String lastName) {
-        this.id = id;
+    public User(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
     }
@@ -15,6 +14,7 @@ public abstract class User {
     public String toString() {
         return String.format(getClass().getSimpleName() + ": id = %s, name = %s, lastName = %s", id, name, lastName);
     }
+
     public int getId(){
         return id;
     }
